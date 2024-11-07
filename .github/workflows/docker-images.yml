@@ -19,6 +19,10 @@ jobs:
       matrix:
         image: 
           - docker-makepkg
+        include:
+          - image: docker-makepkg
+            add_tag: true
+
     runs-on: ubuntu-latest
     steps:
       - 
