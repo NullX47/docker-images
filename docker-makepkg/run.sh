@@ -62,9 +62,6 @@ if [[ -n "$PGPKEY" ]]
 then
   echo "importing the PGP key ..."
   echo "$PGPKEY" | gpg --import -
-  sudo pacman-key --init
-  sudo pacman-key --recv-keys $PGP_KEY --keyserver keyserver.ubuntu.com
-  sudo pacman-key --lsign-key $PGP_KEY
 fi
 
 # Run Custom commands
