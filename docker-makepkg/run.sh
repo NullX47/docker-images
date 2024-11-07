@@ -91,7 +91,6 @@ then
     sudo chown "$(stat -c '%u:%g' /pkg/PKGBUILD)" /home/notroot/packages/*.pkg.tar.*
     sudo mv /home/notroot/packages/*.log /pkg || true
     sudo mv /home/notroot/packages/*.pkg.tar.* /pkg || true
-    find . -type f -name "*.pkg.tar.*"
 fi
 
 # If env $USE_CCACHE, export ccache dir
