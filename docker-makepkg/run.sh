@@ -104,8 +104,8 @@ if [[ "$REPO_INIT" == true ]]
 then
 if [[ -n "$PGPKEY" ]]
 then
-    "repo-add -s -k "$PGP_KEY" -n -R $REPO_NAME.db.tar.gz *.pkg.tar.zst"
+    "repo-add -s -k "$PGP_KEY" -n -R $REPO_NAME.db.tar.gz *.pkg.tar.*"
 else
-    "repo-add -n -R $REPO_NAME.db.tar.gz /home/notroot/packages/*.pkg.tar.zst"
+    "repo-add -n -R $REPO_NAME.db.tar.gz /home/notroot/packages/*.pkg.tar.*"
 fi
 fi
