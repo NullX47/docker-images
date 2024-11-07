@@ -95,14 +95,3 @@ if [[ "$USE_CCACHE" == true ]]
 then
     rsync -avh --delete $CCACHE_DIR /pkg
 fi
-
-# If env $REPO_INIT, Create the repo database
-if [[ "$REPO_INIT" == true ]]
-then
-if [[ -n "$PGPKEY" ]]
-then
-    "repo-add -s -k "$PGP_KEY" -n -R $REPO_NAME.db.tar.gz *.pkg.tar.*"
-else
-    "repo-add -n -R $REPO_NAME.db.tar.gz *.pkg.tar.*"
-fi
-fi
