@@ -40,7 +40,11 @@ jobs:
         name: Determin dockerfile
         env:
           DF: ${{ matrix.dockerfile }}
+          IMG: ${{ matrix.image }}
         run: |
+          if [ -z "${DF}" ]; then
+            DF="${IMG}"
+          fi
           echo "docker_file=${DF}" >> $GITHUB_ENV
       -
         name: Checkout
