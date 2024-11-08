@@ -42,7 +42,7 @@ RUN \
     sudo pacman-key --recv-keys 8D0C96815D9E7713 --keyserver keyserver.ubuntu.com && \
     sudo pacman-key --lsign-key 8D0C96815D9E7713 && \
     sudo pacman -U --noconfirm 'https://github.com/NullX47/archlinux-aur/releases/download/x86_64/anonymized-dnscrypt-proxy-2.1.5.r93.g55b2ed98-1-x86_64.pkg.tar.zst' 'https://github.com/NullX47/archlinux-aur/releases/download/x86_64/zapret-git-68.r32.g9e84bf7-1-x86_64.pkg.tar.zst' && \
-    sudo /usr/bin/dnscrypt-proxy --config /etc/dnscrypt-proxy/dnscrypt-proxy.toml && \
+    sudo /opt/zapret/init.d/sysv/zapret start && \
     # cleanup
     sudo rm -Rf /var/cache/pacman/pkg/ && \
     sudo rm -rf ~/.cache/*
