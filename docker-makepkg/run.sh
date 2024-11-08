@@ -1,5 +1,6 @@
  #!/usr/bin/env bash
 set -e
+sudo dbus-daemon --system &> /dev/null
 
 # Make a copy so we never alter the original
 echo "Copy PKGBUILD ..."
