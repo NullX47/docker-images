@@ -39,7 +39,7 @@ RUN \
     sudo pacman -U --noconfirm 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-20240331-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-18-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v3-mirrorlist-18-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v4-mirrorlist-6-1-any.pkg.tar.zst' && \
     sudo pacman -Sy --noconfirm cachyos-rate-mirrors && sudo cachyos-rate-mirrors && \
     sudo pacman -Syyu --noconfirm --needed archlinux-keyring binutils cmake debugedit fakeroot git wget namcap python rsync sudo base-devel multilib-devel paru pacman-contrib zstd zlib-ng-compat lib32-zlib-ng-compat && \
-    sudo sed -i 's/#XferCommand = /usr/bin/wget --passive-ftp --show-progress -c -q -N -O %o %u/XferCommand = /usr/bin/wget --passive-ftp --show-progress -c -q -N -O %o %u/' /etc/pacman.conf
+    sudo sed -i 's/#XferCommand = /usr/bin/wget --passive-ftp --show-progress -c -q -N -O %o %u/XferCommand = /usr/bin/wget --passive-ftp --show-progress -c -q -N -O %o %u/' /etc/pacman.conf && \
     # cleanup
     sudo rm -Rf /var/cache/pacman/pkg/ && \
     sudo rm -rf ~/.cache/*
