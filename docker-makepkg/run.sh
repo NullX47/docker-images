@@ -81,9 +81,9 @@ echo "Run the Build ..."
 # If env $PGPKEY is empty, do not sign the package
 if [[ -n "$PGPKEY" ]]
 then
-  makepkg -cf --sign --key "$PGP_KEY" --log || true
+  makepkg -cf --sign --key "$PGP_KEY" --noconfirm --log || true
 else
-  makepkg -cf --log || true
+  makepkg -cf --noconfirm --log || true
 fi
 
 # If $EXPORT_PKG, set permissions like the PKGBUILD file and export the package
