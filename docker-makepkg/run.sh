@@ -49,12 +49,16 @@ then
   echo "export QMAKESPEC=linux-clang" >> /etc/makepkg.conf
 fi
 
-# Update checksums and generate .SRCINFO before building
+# Update checksums and generate .SRCINFO & .nvchecker before building
 if [[ "$CHECKSUM_SRC" == true ]]
 then
-  echo "Update checksums in PKGBUILD and generate .SRCINFO before building ..."
+  echo "Update checksums in PKGBUILD and generate .SRCINFO & .nvchecker before building ..."
+  PKGREL=$(grep -o 'pkgrel=[0-9]*' PKGBUILD | grep -o '[0-9]*')
+  NEW_PKGREL=$(echo "$PKGREL + 0.1" | bc)
+  sed -i "s/pkgrel=[0-9]*/pkgrel=$NEW_PKGREL/" PKGBUILD
   updpkgsums
   makepkg --printsrcinfo > .SRCINFO
+  pkgctl version setup || pkgctl version upgrade && pkgctl version upgrade
 fi
 
 # If env $PGPKEY is empty, do not add the key
