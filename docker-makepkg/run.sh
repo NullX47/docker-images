@@ -58,9 +58,6 @@ then
   sed -i "s/pkgrel=[0-9]*/pkgrel=$NEW_PKGREL/" PKGBUILD
   updpkgsums
   makepkg --printsrcinfo > .SRCINFO
-  pkgctl version setup
-  pkgctl version upgrade
-  pkgctl version upgrade
 fi
 
 # If env $PGPKEY is empty, do not add the key
