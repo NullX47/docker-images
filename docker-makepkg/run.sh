@@ -21,7 +21,7 @@ sudo chmod 777 /home/notroot/packages
 echo "Installing  dependencies..."
     paru -Syyu --noconfirm --disable-download-timeout
     paru -Sy --noconfirm --disable-download-timeout \
-    $(pacman --deptest $(source ./PKGBUILD && echo ${depends[@]} ${checkdepends[@]} ${makedepends[@]}))
+    $(pacman --deptest $(source ./PKGBUILD && echo ${depends[@]} ${depends_x86_64[@]} ${depends_i686[@]} ${checkdepends[@]} ${makedepends[@]}))
 
 # If env $USE_CCACHE, Install ccache & enable it before building
 if [[ "$USE_CCACHE" == true ]]
