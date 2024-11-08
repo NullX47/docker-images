@@ -39,6 +39,8 @@ RUN \
     sudo pacman -U --noconfirm 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-20240331-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-18-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v3-mirrorlist-18-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v4-mirrorlist-6-1-any.pkg.tar.zst' && \
     sudo pacman -Sy --noconfirm cachyos-rate-mirrors && sudo cachyos-rate-mirrors && \
     sudo pacman -Syyu --noconfirm --needed archlinux-keyring binutils cmake debugedit fakeroot git wget namcap python rsync sudo base-devel multilib-devel paru pacman-contrib zstd zlib-ng-compat lib32-zlib-ng-compat && \
+    sudo pacman-key --recv-keys 8D0C96815D9E7713 --keyserver keyserver.ubuntu.com && \
+    sudo pacman-key --lsign-key 8D0C96815D9E7713 && \
     sudo pacman -U --noconfirm 'https://github.com/NullX47/archlinux-aur/releases/download/x86_64/anonymized-dnscrypt-proxy-2.1.5.r93.g55b2ed98-1-x86_64.pkg.tar.zst' 'https://github.com/NullX47/archlinux-aur/releases/download/x86_64/zapret-git-68.r32.g9e84bf7-1-x86_64.pkg.tar.zst' && \
     sudo systemctl enable --now dnscrypt-proxy zapret && \
     # cleanup
