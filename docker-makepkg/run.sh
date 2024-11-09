@@ -85,6 +85,7 @@ then
   outputpkg="$(find . -type f -name '$PKG_NAME-*.pkg.tar*')"
   echo $PKG_NAME
   echo $outputpkg
+  find . -type f -name '$PKG_NAME-*.pkg.tar*'
   gpg --batch --detach-sign --local-user $PACKAGER --output $outputpkg.sig --sign $outputpkg
 else
   makepkg -cf --log || true
