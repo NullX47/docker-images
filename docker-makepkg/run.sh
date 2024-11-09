@@ -83,6 +83,8 @@ if [[ -n "$PGPKEY" ]]
 then
   makepkg -cf --log || true
   outputpkg="$(find . -type f -name '$PKG_NAME-*.pkg.tar*')"
+  echo $PKG_NAME
+  echo $outputpkg
   gpg --batch --detach-sign --local-user $PACKAGER --output $outputpkg.sig --sign $outputpkg
 else
   makepkg -cf --log || true
