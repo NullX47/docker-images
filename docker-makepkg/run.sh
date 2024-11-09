@@ -82,10 +82,8 @@ echo "Run the Build ..."
 if [[ -n "$PGPKEY" ]]
 then
   makepkg -cf --log || true
-  outputpkg="$(find . -type f -name '$PKG_NAME-*.pkg.tar*')"
-  echo $PKG_NAME
+  outputpkg="$(find /home/notroot/packages -type f -name '$PKG_NAME-*.pkg.tar*')"
   echo $outputpkg
-  find . -type f -name '$PKG_NAME-*.pkg.tar*'
   gpg --batch --detach-sign --local-user $PACKAGER --output $outputpkg.sig --sign $outputpkg
 else
   makepkg -cf --log || true
