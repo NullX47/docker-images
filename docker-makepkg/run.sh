@@ -82,7 +82,8 @@ echo "Run the Build ..."
 if [[ -n "$PGPKEY" ]]
 then
   makepkg -cf --log || true
-  gpg --detach-sign --pinentry-mode loopback --passphrase --passphrase-fd 0 --local-user "$USER_ID" --output $PKG_NAME.sig --sign $PKG_NAME.pkg.tar.zst
+  outputpkg="$(find . -type f -name '$PKG_NAME-*.pkg.tar*')"
+  gpg --batch --detach-sign --local-user $PACKAGER --output $outputpkg.sig --sign $outputpkg
 else
   makepkg -cf --log || true
 fi
